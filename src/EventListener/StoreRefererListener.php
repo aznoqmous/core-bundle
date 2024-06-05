@@ -47,6 +47,10 @@ class StoreRefererListener
             return;
         }
 
+        if(preg_match("/^\/api\//", $request->getRequestUri())) {
+            return;
+        }
+
         $response = $event->getResponse();
 
         if (200 !== $response->getStatusCode()) {
